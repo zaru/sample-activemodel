@@ -6,7 +6,9 @@ class Contact
   attribute :email, :string
   attribute :content, :string
 
+  validates :name, :email, :content, presence: true
+
   def save
-    true
+    valid?
   end
 end
