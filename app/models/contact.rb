@@ -16,6 +16,13 @@ class Contact
   validates :accepted, acceptance: true
   validates :no_use_ama_amount,  numericality: { only_integer: true, greater_than: 0 }
 
+  class << self
+    # TODO: move to static data class
+    def all_categories
+      %w(foo bar baz)
+    end
+  end
+
   def no_use_ama_name
     # set default value
     @no_use_ama_name ||= 'no name'

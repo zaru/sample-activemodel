@@ -42,6 +42,17 @@
     <%= form.check_box :accepted %>
   </div>
 
+  <% Contact.all_categories.each do |val| %>
+    <label>
+      <%= form.check_box :categories,{ multiple: true, include_hidden: false }, val %>
+      <%= val %>
+    </label>
+  <% end %>
+  <label>
+    <%= form.check_box :categories,{ multiple: true, include_hidden: false }, 'piyo' %>
+    piyo
+  </label>
+
   <div class="actions">
     <%= form.submit %>
   </div>
