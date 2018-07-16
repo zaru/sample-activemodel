@@ -2,7 +2,9 @@ class Contact
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attribute :name, :string
+  attr_accessor :no_use_ama_name
+
+  attribute :name, :string, default: 'no name'
   attribute :email, :string
   attribute :content, :string
   attribute :birthday, :date
@@ -10,6 +12,12 @@ class Contact
 
   validates :name, :email, :content, :birthday, :accepted, presence: true
   validates :birthday, birthday: true
+  validates :accepted, acceptance: true
+
+  def no_use_ama_name
+    # set default value
+    @no_use_ama_name ||= 'no name'
+  end
 
   def save
     valid?
