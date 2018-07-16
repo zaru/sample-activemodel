@@ -5,8 +5,10 @@ class Contact
   attribute :name, :string
   attribute :email, :string
   attribute :content, :string
+  attribute :birthday, :date
+  attribute :accepted, :boolean, default: false
 
-  validates :name, :email, :content, presence: true
+  validates :name, :email, :content, :birthday, :accepted, presence: true
 
   def save
     valid?
