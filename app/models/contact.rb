@@ -9,6 +9,7 @@ class Contact
   attribute :accepted, :boolean, default: false
 
   validates :name, :email, :content, :birthday, :accepted, presence: true
+  validates :birthday, birthday: true
 
   def save
     valid?
