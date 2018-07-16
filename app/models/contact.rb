@@ -5,4 +5,8 @@ class Contact
   attribute :name, :string
   attribute :email, :string
   attribute :content, :string
+
+  def save
+    true
+  end
 end
